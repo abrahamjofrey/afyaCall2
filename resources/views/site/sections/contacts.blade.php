@@ -42,13 +42,18 @@
             </div>
 
             <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="{{route('sendContactUsForm.store')}}" method="post" role="form" >
+                    @csrf
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                        <input type="number" name="phone_number" class="form-control" id="phone_number" placeholder="Enter Phone Number" data-rule="minlen:4" data-msg="Please enter at least 10 chars" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="from_email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
@@ -60,9 +65,7 @@
                         <div class="validate"></div>
                     </div>
                     <div class="mb-3">
-                        <div class="loading">Loading</div>
                         <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
                     <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
